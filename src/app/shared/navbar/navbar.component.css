@@ -1,0 +1,2 @@
+.navbar { min-height: 56px; }
+.nav-link.active { font-weight: 600; border-bottom: 2px solid #fff; }

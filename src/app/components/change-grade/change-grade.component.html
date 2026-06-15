@@ -1,0 +1,54 @@
+<div class="container py-4" style="max-width:540px;">
+  <div class="d-flex align-items-center mb-4">
+    <a routerLink="/employees" class="btn btn-outline-secondary btn-sm me-3">
+      <i class="bi bi-arrow-left me-1"></i> Back
+    </a>
+    <h4 class="fw-bold mb-0"><i class="bi bi-mortarboard-fill me-1"></i> Change Employee Grade</h4>
+  </div>
+
+  <div *ngIf="loading" class="text-center py-5">
+    <div class="spinner-border text-primary" role="status"></div>
+  </div>
+  <div *ngIf="error"   class="alert alert-danger  py-2">{{ error }}</div>
+  <div *ngIf="success" class="alert alert-success py-2">{{ success }}</div>
+
+  <div *ngIf="!loading && employee" class="card shadow-sm">
+    <div class="card-body p-4">
+
+      <div class="mb-4 p-3 bg-light rounded">
+        <div class="row g-2">
+          <div class="col-6"><div class="small text-muted">Employee ID</div><div class="fw-semibold">{{ employee.employeeId }}</div></div>
+          <div class="col-6"><div class="small text-muted">Name</div><div class="fw-semibold">{{ employee.firstName }}</div></div>
+          <div class="col-6"><div class="small text-muted">Role</div><div class="fw-semibold">{{ employee.role }}</div></div>
+          <div class="col-6"><div class="small text-muted">Current Grade</div><div class="fw-semibold text-primary">{{ employee.gradeName }}</div></div>
+        </div>
+      </div>
+
+      <div *ngIf="availableGrades.length === 0" class="alert alert-info py-2">
+        This employee is already at Grade-1 (highest). No further upgrades available.
+      </div>
+
+      <div *ngIf="availableGrades.length > 0">
+        <div class="mb-4">
+          <label class="form-label fw-semibold">Upgrade to Grade</label>
+          <select class="form-select" (change)="onGradeSelect($event)">
+            <option *ngFor="let g of availableGrades" [value]="g.id">
+              {{ g.gradeName }} &#x2014; &#x20B9;{{ g.maxBudgetPerDay | number }}/day
+            </option>
+          </select>
+          <div class="form-text text-warning mt-1">
+            <i class="bi bi-exclamation-triangle-fill me-1"></i> Upgrades only. Subject to 2-year new-joiner freeze and once-per-year limit.
+          </div>
+        </div>
+        <div class="d-flex gap-2">
+          <button class="btn btn-primary" (click)="onSubmit()" [disabled]="submitting || !selectedGradeId">
+            <span *ngIf="submitting" class="spinner-border spinner-border-sm me-1"></span>
+            {{ submitting ? 'Updating&#x2026;' : 'Confirm Grade Change' }}
+          </button>
+          <a routerLink="/employees" class="btn btn-outline-secondary">Cancel</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

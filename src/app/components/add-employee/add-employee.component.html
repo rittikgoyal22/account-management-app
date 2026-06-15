@@ -1,0 +1,104 @@
+<div class="container py-4" style="max-width:640px;">
+  <div class="d-flex align-items-center mb-4">
+    <a routerLink="/employees" class="btn btn-outline-secondary btn-sm me-3">
+      <i class="bi bi-arrow-left me-1"></i> Back
+    </a>
+    <h4 class="fw-bold mb-0"><i class="bi bi-person-plus-fill me-1"></i> Add Employee</h4>
+  </div>
+
+  <div *ngIf="success" class="alert alert-success py-2">{{ success }}</div>
+  <div *ngIf="error"   class="alert alert-danger  py-2">{{ error }}</div>
+
+  <div class="card shadow-sm">
+    <div class="card-body p-4">
+      <form [formGroup]="addForm" (ngSubmit)="onSubmit()" novalidate>
+
+        <div class="mb-3">
+          <label class="form-label fw-semibold">First Name</label>
+          <input type="text" class="form-control"
+            [class.is-invalid]="f['firstName'].invalid && f['firstName'].touched"
+            formControlName="firstName" placeholder="Enter first name">
+          <div class="invalid-feedback">
+            <span *ngIf="f['firstName'].errors?.['required']">Required.</span>
+            <span *ngIf="f['firstName'].errors?.['minlength']">Min 2 characters.</span>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Email Address</label>
+          <input type="email" class="form-control"
+            [class.is-invalid]="f['emailAddress'].invalid && f['emailAddress'].touched"
+            formControlName="emailAddress" placeholder="name@cognizant.com">
+          <div class="invalid-feedback">
+            <span *ngIf="f['emailAddress'].errors?.['required']">Required.</span>
+            <span *ngIf="f['emailAddress'].errors?.['email'] || f['emailAddress'].errors?.['pattern']">
+              Must be a valid &#64;cognizant.com email.
+            </span>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Password</label>
+          <div class="input-group">
+            <input [type]="showPassword ? 'text' : 'password'" class="form-control"
+              [class.is-invalid]="f['password'].invalid && f['password'].touched"
+              formControlName="password" placeholder="Min 6 characters">
+            <button type="button" class="btn btn-outline-secondary" (click)="togglePassword()">
+              <i [class]="showPassword ? 'bi bi-eye-slash' : 'bi bi-eye'"></i>
+            </button>
+          </div>
+          <div class="invalid-feedback d-block"
+               *ngIf="f['password'].invalid && f['password'].touched">
+            <span *ngIf="f['password'].errors?.['required']">Required.</span>
+            <span *ngIf="f['password'].errors?.['minlength']">Min 6 characters.</span>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Role</label>
+          <div class="role-cards">
+            <label class="role-card" [class.selected]="f['role'].value === 'Employee'">
+              <input type="radio" formControlName="role" value="Employee" class="d-none">
+              <i class="bi bi-person-fill role-icon"></i>
+              <span class="role-name">Employee</span>
+              <span class="role-desc">Raises travel requests &amp; claims</span>
+            </label>
+            <label class="role-card" [class.selected]="f['role'].value === 'HR'">
+              <input type="radio" formControlName="role" value="HR" class="d-none">
+              <i class="bi bi-people-fill role-icon"></i>
+              <span class="role-name">HR</span>
+              <span class="role-desc">Approves requests &amp; budgets</span>
+            </label>
+            <label class="role-card" [class.selected]="f['role'].value === 'TravelDeskExe'">
+              <input type="radio" formControlName="role" value="TravelDeskExe" class="d-none">
+              <i class="bi bi-briefcase-fill role-icon"></i>
+              <span class="role-name">Travel Desk Exe</span>
+              <span class="role-desc">Handles reservations &amp; reimbursements</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label class="form-label fw-semibold">Grade</label>
+          <div *ngIf="gradeLoading" class="text-muted small">Loading grades&#x2026;</div>
+          <select *ngIf="!gradeLoading" class="form-select" formControlName="currentGradeId">
+            <option *ngFor="let g of grades" [value]="g.id">
+              {{ g.gradeName }} &#x2014; &#x20B9;{{ g.maxBudgetPerDay | number }}/day
+            </option>
+          </select>
+          <div class="form-text" *ngIf="f['role'].value === 'TravelDeskExe'">
+            Travel Desk Executives are always assigned Grade-1.
+          </div>
+        </div>
+
+        <div class="d-flex gap-2">
+          <button type="submit" class="btn btn-primary" [disabled]="loading">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
+            {{ loading ? 'Creating&#x2026;' : 'Create Employee' }}
+          </button>
+          <a routerLink="/employees" class="btn btn-outline-secondary">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
