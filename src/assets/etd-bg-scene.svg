@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" role="img" aria-label="Travel themed cityscape background">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ECEAFE"/>
+      <stop offset="0.5" stop-color="#EAF3FF"/>
+      <stop offset="1" stop-color="#FBFCFF"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#FFE3B0" stop-opacity="0.9"/>
+      <stop offset="0.6" stop-color="#FFD089" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#FFD089" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="halo" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#F0ABFC" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#F0ABFC" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="halo2" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#67E8F9" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#67E8F9" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="far" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#C7D2FE"/>
+      <stop offset="1" stop-color="#BCC8FB"/>
+    </linearGradient>
+    <linearGradient id="near" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#A5B4FC"/>
+      <stop offset="1" stop-color="#818CF8"/>
+    </linearGradient>
+    <linearGradient id="balloonA" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F472B6"/><stop offset="1" stop-color="#DB2777"/>
+    </linearGradient>
+    <linearGradient id="balloonB" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2DD4BF"/><stop offset="1" stop-color="#0891B2"/>
+    </linearGradient>
+  </defs>
+
+  <!-- sky + atmosphere -->
+  <rect width="1440" height="900" fill="url(#sky)"/>
+  <circle cx="1240" cy="140" r="250" fill="url(#sun)"/>
+  <circle cx="240" cy="120" r="250" fill="url(#halo)"/>
+  <circle cx="780" cy="60" r="220" fill="url(#halo2)"/>
+
+  <!-- clouds -->
+  <g fill="#ffffff" opacity="0.85">
+    <g><ellipse cx="185" cy="190" rx="60" ry="27"/><ellipse cx="240" cy="184" rx="48" ry="23"/><ellipse cx="140" cy="200" rx="42" ry="19"/><ellipse cx="205" cy="206" rx="78" ry="20"/></g>
+    <g><ellipse cx="565" cy="135" rx="48" ry="22"/><ellipse cx="608" cy="130" rx="38" ry="18"/><ellipse cx="530" cy="146" rx="34" ry="15"/></g>
+    <g><ellipse cx="995" cy="215" rx="56" ry="25"/><ellipse cx="1045" cy="210" rx="44" ry="20"/><ellipse cx="955" cy="226" rx="38" ry="17"/></g>
+    <g opacity="0.7"><ellipse cx="1230" cy="330" rx="46" ry="21"/><ellipse cx="1270" cy="326" rx="36" ry="17"/></g>
+  </g>
+
+  <!-- flight routes -->
+  <g stroke="#6366F1" stroke-width="2.5" fill="none" opacity="0.30" stroke-dasharray="2 10" stroke-linecap="round">
+    <path d="M120 360 Q 520 140 940 320"/>
+    <path d="M300 520 Q 760 360 1190 470"/>
+  </g>
+  <g fill="#6366F1" opacity="0.5">
+    <circle cx="120" cy="360" r="5"/><circle cx="940" cy="320" r="5"/>
+    <circle cx="300" cy="520" r="5"/><circle cx="1190" cy="470" r="5"/>
+  </g>
+  <!-- paper planes -->
+  <g fill="#4F46E5" opacity="0.55">
+    <path transform="translate(560 200) rotate(18) scale(1.5)" d="M0 0 L26 9 L9 11 L5 20 L1 11 L-7 9 Z"/>
+    <path transform="translate(760 430) rotate(10) scale(1.2)" d="M0 0 L26 9 L9 11 L5 20 L1 11 L-7 9 Z"/>
+  </g>
+
+  <!-- hot-air balloons -->
+  <g opacity="0.85">
+    <g stroke="#DB2777" stroke-width="1.5" opacity="0.6"><line x1="1068" y1="296" x2="1074" y2="318"/><line x1="1092" y1="296" x2="1086" y2="318"/></g>
+    <ellipse cx="1080" cy="252" rx="40" ry="48" fill="url(#balloonA)"/>
+    <rect x="1072" y="316" width="16" height="12" rx="2" fill="#9D174D"/>
+  </g>
+  <g opacity="0.85">
+    <g stroke="#0891B2" stroke-width="1.4" opacity="0.6"><line x1="420" y1="338" x2="425" y2="356"/><line x1="440" y1="338" x2="435" y2="356"/></g>
+    <ellipse cx="430" cy="300" rx="34" ry="41" fill="url(#balloonB)"/>
+    <rect x="423" y="354" width="14" height="11" rx="2" fill="#155E75"/>
+  </g>
+
+  <!-- far skyline -->
+  <g fill="url(#far)" opacity="0.55">
+    <rect x="40" y="632" width="110" height="268"/>
+    <rect x="160" y="598" width="92" height="302"/>
+    <rect x="270" y="656" width="118" height="244"/>
+    <rect x="404" y="606" width="84" height="294"/>
+    <rect x="500" y="576" width="128" height="324"/>
+    <rect x="648" y="636" width="92" height="264"/>
+    <rect x="756" y="600" width="120" height="300"/>
+    <rect x="892" y="654" width="92" height="246"/>
+    <rect x="1000" y="606" width="120" height="294"/>
+    <rect x="1150" y="636" width="100" height="264"/>
+    <rect x="1270" y="598" width="120" height="302"/>
+    <rect x="1402" y="648" width="90" height="252"/>
+  </g>
+
+  <!-- near skyline -->
+  <g fill="url(#near)" opacity="0.9">
+    <rect x="0" y="720" width="96" height="180"/>
+    <rect x="100" y="762" width="74" height="138"/>
+    <rect x="180" y="686" width="104" height="214"/>
+    <rect x="290" y="742" width="82" height="158"/>
+    <rect x="378" y="656" width="112" height="244"/>
+    <rect x="496" y="730" width="74" height="170"/>
+    <rect x="576" y="700" width="98" height="200"/>
+    <rect x="680" y="642" width="120" height="258"/>
+    <polygon points="680,642 740,598 800,642"/>
+    <rect x="737" y="556" width="6" height="44"/>
+    <rect x="806" y="712" width="82" height="188"/>
+    <rect x="894" y="678" width="104" height="222"/>
+    <rect x="1004" y="744" width="74" height="156"/>
+    <rect x="1084" y="660" width="114" height="240"/>
+    <rect x="1204" y="720" width="86" height="180"/>
+    <rect x="1296" y="690" width="104" height="210"/>
+    <rect x="1406" y="735" width="60" height="165"/>
+  </g>
+
+  <!-- a few lit windows -->
+  <g fill="#EEF2FF" opacity="0.45">
+    <rect x="196" y="704" width="10" height="14"/><rect x="216" y="704" width="10" height="14"/><rect x="236" y="704" width="10" height="14"/>
+    <rect x="196" y="734" width="10" height="14"/><rect x="216" y="734" width="10" height="14"/><rect x="236" y="734" width="10" height="14"/>
+    <rect x="398" y="676" width="10" height="14"/><rect x="420" y="676" width="10" height="14"/><rect x="442" y="676" width="10" height="14"/>
+    <rect x="398" y="706" width="10" height="14"/><rect x="420" y="706" width="10" height="14"/><rect x="442" y="706" width="10" height="14"/>
+    <rect x="700" y="664" width="10" height="14"/><rect x="722" y="664" width="10" height="14"/><rect x="744" y="664" width="10" height="14"/>
+    <rect x="700" y="694" width="10" height="14"/><rect x="722" y="694" width="10" height="14"/><rect x="744" y="694" width="10" height="14"/>
+    <rect x="1104" y="680" width="10" height="14"/><rect x="1126" y="680" width="10" height="14"/><rect x="1148" y="680" width="10" height="14"/>
+    <rect x="1104" y="710" width="10" height="14"/><rect x="1126" y="710" width="10" height="14"/><rect x="1148" y="710" width="10" height="14"/>
+  </g>
+</svg>
